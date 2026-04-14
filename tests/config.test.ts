@@ -52,5 +52,6 @@ describe("applyMemPalaceConfig", () => {
     expect(commands["mempalace-help"]?.description).toContain("MemPalace usage");
     expect(commands["mempalace-mine"]?.template).toContain("Use the `skill` tool to load the `mempalace` skill.");
     expect(commands["mempalace-mine"]?.template).toContain("current project root");
+    expect(commands["mempalace-mine-session"]?.description).toContain("current OpenCode session");
   });
 });

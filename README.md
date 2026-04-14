@@ -16,10 +16,12 @@ An [OpenCode](https://opencode.ai) server plugin that integrates [MemPalace](htt
 
 The plugin:
 
-- installs the `mempalace` Python package if it is missing
+- requires an existing `mempalace` installation and logs startup diagnostics if it is missing
 - registers a local `mempalace` MCP server
 - injects MemPalace slash commands into OpenCode
 - injects a bundled `mempalace` skill into OpenCode
+- automatically mines OpenCode session transcripts into MemPalace conversation memory
+- can inject `mempalace wake-up` memory into the system prompt and compaction context
 
 ## Installation
 
@@ -31,6 +33,47 @@ Add the plugin to your OpenCode config:
   "plugin": ["@devtheops/opencode-plugin-mempalace"]
 }
 ```
+
+You can configure automatic conversation mining with a per-session message threshold:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [["@devtheops/opencode-plugin-mempalace", { "threshold": 30 }]]
+}
+```
+
+Full plugin options:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [["@devtheops/opencode-plugin-mempalace", {
+    "threshold": 15,
+    "autoMine": true,
+    "injectWakeUp": true,
+    "injectOnCompaction": true,
+    "maxWakeUpChars": 4000,
+    "flushOnIdle": true,
+    "flushOnExit": true
+  }]]
+}
+```
+
+`threshold` rules:
+
+- default: `15`
+- `0`: disable threshold-triggered mining and only flush on idle, delete, and compaction
+- invalid or negative values fall back to `15`
+
+Other options:
+
+- `autoMine`: enable or disable automatic conversation mining entirely
+- `injectWakeUp`: inject `mempalace wake-up` output into the system prompt
+- `injectOnCompaction`: inject `mempalace wake-up` output into compaction context
+- `maxWakeUpChars`: truncate injected wake-up memory to this many characters
+- `flushOnIdle`: flush dirty sessions when OpenCode marks them idle or deleted
+- `flushOnExit`: register graceful process-exit hooks
 
 For local development you can point OpenCode directly at this checkout:
 
@@ -45,7 +88,7 @@ For local development you can point OpenCode directly at this checkout:
 
 - OpenCode
 - Python 3.9+
-- `pip`
+- MemPalace installed already, either as `mempalace` on `PATH` or as a Python module importable by `python3` or `python`
 
 ## What It Adds
 
@@ -66,14 +109,17 @@ If a `mempalace` MCP server is already configured, the plugin leaves it alone.
 
 ## Runtime Behavior
 
-When OpenCode loads the plugin, it checks for `python3` or `python` and then verifies whether the `mempalace` package is importable.
-If not, it runs:
+When OpenCode loads the plugin, it checks for the `mempalace` CLI first, then falls back to verifying whether the `mempalace` package is importable through `python3` or `python`.
+
+If MemPalace is missing, the plugin does not install it automatically. Instead it logs explicit warnings so MCP startup failures are easier to diagnose.
+
+The plugin also exports OpenCode session transcripts through the OpenCode client API and mines them with:
 
 ```bash
-python3 -m pip install --upgrade mempalace
+mempalace mine <transcript-file> --mode convos
 ```
 
-If installation fails, the plugin logs a warning and OpenCode continues running.
+Threshold-based mining is configurable through the plugin `threshold` option.
 
 ## Development
 

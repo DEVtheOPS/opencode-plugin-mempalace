@@ -11,15 +11,13 @@ MemPalace is a searchable memory system for mined projects and conversations.
 
 ## Prerequisites
 
-This plugin tries to install `mempalace` automatically through `pip` when OpenCode loads the plugin.
-
 Verify the CLI is available:
 
 ```bash
 mempalace --version
 ```
 
-If it is still missing, install it manually:
+If it is missing, install it manually:
 
 ```bash
 python3 -m pip install --upgrade mempalace
@@ -52,4 +50,4 @@ After retrieving the instructions, follow them step by step.
 ## MCP Server
 
 This plugin injects a local `mempalace` MCP server into OpenCode config at runtime.
-If the tools are missing, confirm the Python package installed successfully.
+If the tools are missing, confirm the `mempalace` CLI or Python package is installed and check the plugin logs for startup diagnostics.

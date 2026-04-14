@@ -42,6 +42,13 @@ function injectCommands(cfg: ConfigWithExtensions) {
     "If command arguments are present, treat them as the search query.",
   );
   commands["mempalace-status"] = template("status", "Show MemPalace status, room counts, and health.");
+  commands["mempalace-mine-session"] = {
+    description: "Export the current OpenCode session and mine it into MemPalace conversation memory.",
+    template: [
+      "Use the `mempalace_mine_session` tool to export the current OpenCode session and mine it into MemPalace.",
+      "If the tool reports that MemPalace is unavailable or the project is not initialized, run `/mempalace-init` first.",
+    ].join("\n\n"),
+  };
 }
 
 function injectMcp(cfg: ConfigWithExtensions) {
@@ -51,11 +58,7 @@ function injectMcp(cfg: ConfigWithExtensions) {
 
   mcp["mempalace"] = {
     type: "local",
-    command: [
-      "sh",
-      "-lc",
-      "if command -v python3 >/dev/null 2>&1; then exec python3 -m mempalace.mcp_server; else exec python -m mempalace.mcp_server; fi",
-    ],
+    command: ["python3", "-m", "mempalace.mcp_server"],
     enabled: true,
     timeout: 10000,
   };
