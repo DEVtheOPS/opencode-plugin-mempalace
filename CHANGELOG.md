@@ -6,6 +6,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and 
 
 ---
 
+## 1.0.0 (2026-04-14)
+
+
+### Features
+
+* add configurable MemPalace session mining ([ab97ce1](https://github.com/DEVtheOPS/opencode-plugin-mempalace/commit/ab97ce1a99632984be644d8094cb8a31f1dc8ab6))
+* add MemPalace OpenCode plugin v0.2.0 ([e428133](https://github.com/DEVtheOPS/opencode-plugin-mempalace/commit/e4281336a82c71809dc9103d89e9ae26a4fc2df1))
+
 ## [Unreleased]
 
 ### Features
