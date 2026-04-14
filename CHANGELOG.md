@@ -6,7 +6,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and 
 
 ---
 
-## [1.0.1](https://github.com/DEVtheOPS/opencode-plugin-mempalace/compare/v1.0.0...v1.0.1) (2026-04-14)
+## [1.2.0](https://github.com/DEVtheOPS/opencode-plugin-mempalace/compare/v1.0.0...v1.0.1) (2026-04-14)
 
 
 ### Bug Fixes
