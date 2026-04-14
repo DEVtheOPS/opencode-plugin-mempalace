@@ -1,28 +1,18 @@
 {
-  "name": "@devtheops/opencode-plugin-mempalace",
-  "version": "1.1.0",
-  "description": "MemPalace plugin for OpenCode. Installs the Python package, registers the MCP server, and injects commands and a bundled skill.",
-  "type": "module",
   "author": "DEVtheOPS",
-  "license": "MIT",
-  "homepage": "https://github.com/DEVtheOPS/opencode-mempalace#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DEVtheOPS/opencode-mempalace.git"
-  },
   "bugs": {
-    "url": "https://github.com/DEVtheOPS/opencode-mempalace/issues"
+    "url": "https://github.com/DEVtheOPS/opencode-plugin-mempalace/issues"
   },
-  "keywords": [
-    "opencode",
-    "plugin",
-    "mempalace",
-    "memory",
-    "mcp",
-    "python"
-  ],
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.2.23",
+    "@opencode-ai/sdk": "^1.2.23",
+    "typescript": "^5.9.3"
+  },
+  "description": "MemPalace plugin for OpenCode. Installs the Python package, registers the MCP server, and injects commands and a bundled skill.",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.6.0"
+  },
   "exports": {
     ".": "./src/index.ts",
     "./server": "./src/index.ts"
@@ -31,23 +21,33 @@
     "src/",
     "skills/"
   ],
+  "homepage": "https://github.com/DEVtheOPS/opencode-plugin-mempalace#readme",
+  "keywords": [
+    "opencode",
+    "plugin",
+    "mempalace",
+    "memory",
+    "mcp",
+    "python"
+  ],
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "name": "@devtheops/opencode-plugin-mempalace",
+  "oc-plugin": [
+    "server"
+  ],
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@opencode-ai/plugin": "^1.2.23",
-    "@opencode-ai/sdk": "^1.2.23",
-    "typescript": "^5.9.3"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/node": "^25.6.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DEVtheOPS/opencode-plugin-mempalace.git"
   },
   "scripts": {
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
-  "oc-plugin": [
-    "server"
-  ]
+  "type": "module",
+  "version": "1.1.0"
 }

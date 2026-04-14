@@ -2,17 +2,18 @@
 
 [![npm version](https://img.shields.io/npm/v/@devtheops/opencode-plugin-mempalace.svg)](https://www.npmjs.com/package/@devtheops/opencode-plugin-mempalace)
 [![npm downloads](https://img.shields.io/npm/dm/@devtheops/opencode-plugin-mempalace.svg)](https://www.npmjs.com/package/@devtheops/opencode-plugin-mempalace)
-[![GitHub stars](https://img.shields.io/github/stars/DEVtheOPS/opencode-mempalace.svg)](https://github.com/DEVtheOPS/opencode-mempalace/stargazers)
-[![Build status](https://img.shields.io/github/actions/workflow/status/DEVtheOPS/opencode-mempalace/release-please.yml?branch=main)](https://github.com/DEVtheOPS/opencode-mempalace/actions/workflows/release-please.yml)
-[![License](https://img.shields.io/npm/l/@devtheops/opencode-plugin-mempalace.svg)](https://github.com/DEVtheOPS/opencode-mempalace/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/DEVtheOPS/opencode-plugin-mempalace.svg)](https://github.com/DEVtheOPS/opencode-plugin-mempalace/stargazers)
+[![Build status](https://img.shields.io/github/actions/workflow/status/DEVtheOPS/opencode-plugin-mempalace/release-please.yml?branch=main)](https://github.com/DEVtheOPS/opencode-plugin-mempalace/actions/workflows/release-please.yml)
+[![License](https://img.shields.io/npm/l/@devtheops/opencode-plugin-mempalace.svg)](https://github.com/DEVtheOPS/opencode-plugin-mempalace/blob/main/LICENSE)
 
 An [OpenCode](https://opencode.ai) server plugin that integrates [MemPalace](https://github.com/MemPalace/mempalace) without vendoring the MemPalace application code.
 
-- [Installation](#installation)
-- [Requirements](#requirements)
-- [What It Adds](#what-it-adds)
-- [Runtime Behavior](#runtime-behavior)
-- [Development](#development)
+- [opencode-plugin-mempalace](#opencode-plugin-mempalace)
+  - [Installation](#installation)
+  - [Requirements](#requirements)
+  - [What It Adds](#what-it-adds)
+  - [Runtime Behavior](#runtime-behavior)
+  - [Development](#development)
 
 The plugin:
 
