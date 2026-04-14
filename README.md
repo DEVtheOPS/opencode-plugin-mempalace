@@ -98,13 +98,15 @@ The plugin injects these commands:
 - `/mempalace-help`
 - `/mempalace-init`
 - `/mempalace-mine`
+- `/mempalace-mine-session`
 - `/mempalace-search`
 - `/mempalace-status`
 
 It also injects:
 
 - a `mempalace` skill
-- a local `mempalace` MCP server that runs `python3 -m mempalace.mcp_server` or falls back to `python -m mempalace.mcp_server`
+- a local `mempalace` MCP server that runs `python3 -m mempalace.mcp_server`
+- a `mempalace_mine_session` plugin tool for manually exporting and mining the current OpenCode session
 
 If a `mempalace` MCP server is already configured, the plugin leaves it alone.
 
@@ -121,6 +123,8 @@ mempalace mine <transcript-file> --mode convos
 ```
 
 Threshold-based mining is configurable through the plugin `threshold` option.
+
+`flushOnExit` currently registers graceful signal handlers only. It does not yet perform a true synchronous transcript flush during process teardown.
 
 ## Development
 
